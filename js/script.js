@@ -15,10 +15,11 @@ function showPassword() {
 }
 
 // is the user logged in or not?
+// On page load — check if user is logged in
 fetch('helper/is_logged_in.php')
     .then(res => res.json())
     .then(function (res) {
-        if (res.status == 'yes') {
+        if (res.status == 'yes') { // Hide Login link, show Logout link
             const login = document.querySelector('#login')
             login.style.display = 'none'
             const logout = document.querySelector('#logout')
@@ -26,10 +27,13 @@ fetch('helper/is_logged_in.php')
 
             logout.addEventListener('click', function (e) {
                 e.preventDefault()
+                // When Logout is clicked
                 fetch('helper/logout_ajax.php')
                     .then(res => res.json())
                     .then(function (res) {
                         if (res.status == 'success') {
+                            // Show Login link, hide Logout link
+                            // Display "You have been logged out" message 
                             login.style.display = 'inline-block'
                             logout.style.display = 'none'
                             document.querySelector('#message').innerHTML = '<p>You have been logged out</p>'
