@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // form submitted ?? get data
     <input type="email" name="email" id="email" required>
     <br><br>
     <label for="password">Password</label>
+    <!-- help with password retention  -->
     <span id="showPassword" onclick="showPassword();">Show Password</span>
     <br><br>
     <input type="password" name="password" id="password" required>
