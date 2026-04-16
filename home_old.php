@@ -1,6 +1,6 @@
 <?php
 // home_old.php
-session_start();
+session_start(); // starting a session
 $pageTitle = 'Home';
 require 'inc/header.inc.php';
 ?>

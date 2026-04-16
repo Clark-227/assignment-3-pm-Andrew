@@ -11,11 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // form submitted ?? get data
     // query the database
     $sql = "SELECT * FROM user WHERE email=:email AND password=:password LIMIT 1";
 
-    $stmt = $db->prepare($sql);
-    $stmt->execute(["email" => $email, "password" => $password]);
+    $stmt = $db->prepare($sql); 
+    $stmt->execute(["email" => $email, "password" => $password]); // sending credentials 
 
     // match found start session
-    if ($stmt->rowCount() == 1) {
+    if ($stmt->rowCount() == 1) { // checking to see if in the database there is a match
         $row = $stmt->fetch();
         session_start();
         $_SESSION["is_logged_in"] = 1;
